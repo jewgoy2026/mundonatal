@@ -56,8 +56,8 @@ export function ProductDetail({ product }: { product: Product }) {
         <span className="text-white">{product.shortName}</span>
       </nav>
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(390px,0.85fr)] lg:gap-16">
-        <div>
+      <div className="grid gap-7 lg:grid-cols-[minmax(0,520px)_minmax(390px,1fr)] lg:justify-between lg:gap-12">
+        <div className="min-w-0 lg:max-w-[520px]">
           <div className="grid gap-2">
             <div className="order-2 flex gap-2 overflow-x-auto">
               {product.images.map((image, index) => (
@@ -67,15 +67,15 @@ export function ProductDetail({ product }: { product: Product }) {
                   aria-label={`Ver imagem ${index + 1}`}
                   aria-current={imageIndex === index}
                   onClick={() => setImageIndex(index)}
-                  className={`size-20 shrink-0 overflow-hidden rounded-xl border bg-[#1a1715] p-2 transition ${
+                  className={`size-16 shrink-0 overflow-hidden rounded-xl border bg-[#1a1715] transition sm:size-20 ${
                     imageIndex === index ? 'border-[var(--brand-yellow)]' : 'border-white/10 hover:border-white/50'
                   }`}
                 >
-                  <img src={image} alt="" className="h-full w-full object-contain" />
+                  <img src={image} alt="" className="h-full w-full object-cover object-center" />
                 </button>
               ))}
             </div>
-            <div className="order-1 relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-[#1a1715] p-3 sm:p-8">
+            <div className="order-1 relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-[#1a1715]">
               {product.badge && (
                 <span className="absolute left-3 top-3 z-10 -rotate-3 rounded-lg bg-[var(--brand-yellow)] px-3 py-2 text-[10px] font-black uppercase tracking-[0.1em] text-black sm:left-5 sm:top-5">
                   {product.badge}
@@ -87,7 +87,7 @@ export function ProductDetail({ product }: { product: Product }) {
               <img
                 src={product.images[imageIndex]}
                 alt={product.shortName}
-                className="h-full w-full object-contain transition duration-500 hover:scale-[1.04]"
+                className="h-full w-full object-contain object-center transition duration-500 hover:scale-[1.025]"
               />
             </div>
           </div>

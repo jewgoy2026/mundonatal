@@ -51,7 +51,7 @@ export default async function Home() {
             {collections.map((collection) => {
               const product = products.find((item) => item.collections.includes(collection.slug));
               if (!product) return null;
-              return <a key={collection.slug} href={`/produtos?colecao=${collection.slug}`} className="group overflow-hidden rounded-t-[5rem] border border-white/15 bg-white/5 p-3 text-center"><span className="flex aspect-[4/5] items-center justify-center overflow-hidden rounded-t-[4.4rem] bg-[var(--brand-cream)] p-4"><img src={product.images[0]} alt="" className="h-full w-full object-contain transition duration-500 group-hover:scale-105" loading="lazy" /></span><strong className="block px-2 py-5 text-sm">{collection.name}</strong></a>;
+              return <a key={collection.slug} href={`/produtos?colecao=${collection.slug}`} className="group overflow-hidden rounded-t-[3.25rem] border border-white/15 bg-white/5 p-2 text-center sm:rounded-t-[5rem] sm:p-3"><span className="block aspect-[4/5] overflow-hidden rounded-t-[2.75rem] bg-[var(--brand-cream)] sm:rounded-t-[4.4rem]"><img src={product.images[0]} alt="" className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" loading="lazy" /></span><strong className="flex min-h-16 items-center justify-center px-1 py-4 text-sm sm:px-2 sm:py-5">{collection.name}</strong></a>;
             })}
           </div>
         </div>
