@@ -87,7 +87,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     .slice(0, 4);
 
   return (
-    <main className="min-h-screen bg-[var(--brand-black)]">
+    <main className="min-h-screen bg-[var(--brand-cream)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -95,9 +95,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
         }}
       />
       <ProductDetail product={product} />
-      <section className="border-t border-white/10 bg-[var(--brand-black)] px-4 py-16 text-white sm:px-8 lg:px-12 lg:py-20">
+      <section className="border-t border-black/10 bg-[#f0ece2] px-4 py-16 text-black sm:px-8 lg:px-12 lg:py-20">
         <div className="mx-auto max-w-[1240px]">
-          <p className="text-xs font-black uppercase tracking-[0.22em] text-[var(--brand-gold)]">Continue explorando</p>
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-[var(--brand-green-dark)]">Continue explorando</p>
           <h2 className="brand-heading mt-2 text-4xl sm:text-5xl">Você também pode gostar</h2>
           <div className="mt-10 grid grid-cols-2 gap-x-3 gap-y-10 lg:grid-cols-4 lg:gap-5">
             {related.map((entry) => <ProductCard key={entry.handle} product={entry} featured />)}

@@ -53,15 +53,17 @@ body {
 }
 
 :root {
-  --background: #f6f0e3;
-  --foreground: #4d0b1d;
+  --background: #f7f4ed;
+  --foreground: #111111;
   --brand-yellow: #c9a75f;
   --brand-gold: #d9bb78;
   --brand-gold-dark: #9b7330;
   --brand-red: #5f0d24;
   --brand-black: #310711;
-  --brand-cream: #f6f0e3;
-  --product-surface: #eee3cf;
+  --brand-cream: #f7f4ed;
+  --brand-green: #6f8f72;
+  --brand-green-dark: #42624a;
+  --product-surface: #efede7;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);

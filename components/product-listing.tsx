@@ -60,9 +60,9 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
   };
 
   return (
-    <div className="mx-auto max-w-[1240px] px-4 pb-20 text-white sm:px-8 lg:px-0">
+    <div className="mx-auto max-w-[1240px] px-4 pb-20 text-black sm:px-8 lg:px-0">
       <div className="flex items-center justify-between gap-4 py-4 lg:hidden">
-        <p className="text-sm text-white/70">Ordenar</p>
+        <p className="text-sm text-black/70">Ordenar</p>
         <NativeSelect
           aria-label="Ordenar produtos"
           value={sort}
@@ -80,22 +80,22 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
         <p className="text-sm font-black">{filtered.length} resultado{filtered.length === 1 ? '' : 's'}</p>
         <Button
           variant="outline"
-          className="rounded-full border-white/70 bg-transparent px-5 font-black uppercase text-white hover:bg-white hover:text-black"
+          className="rounded-full border-black/25 bg-white px-5 font-black uppercase text-black hover:border-[var(--brand-green)] hover:bg-[var(--brand-green)] hover:text-white"
           onClick={() => setFiltersOpen((current) => !current)}
         >
           <SlidersHorizontal className="size-4" /> Filtros
         </Button>
       </div>
 
-      <div className={`${filtersOpen ? 'grid' : 'hidden'} gap-4 border-y border-white/15 py-5 lg:grid lg:grid-cols-[1fr_auto_auto_auto] lg:items-center`}>
+      <div className={`${filtersOpen ? 'grid' : 'hidden'} gap-4 border-y border-black/10 py-5 lg:grid lg:grid-cols-[1fr_auto_auto_auto] lg:items-center`}>
         <label className="relative block">
           <span className="sr-only">Buscar no catálogo</span>
-          <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-white/45" />
+          <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-black/45" />
           <Input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Buscar no catálogo"
-            className="h-11 rounded-full border-white/15 bg-[#1a1715] pl-11 text-white placeholder:text-white/40"
+            className="h-11 rounded-full border-black/15 bg-white pl-11 text-black placeholder:text-black/40"
           />
         </label>
 
@@ -103,7 +103,7 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
           aria-label="Filtrar por categoria"
           value={category}
           onChange={(event) => setCategory(event.target.value)}
-          className="w-full lg:w-52 [&_[data-slot=native-select]]:h-11 [&_[data-slot=native-select]]:rounded-full [&_[data-slot=native-select]]:border-white/15 [&_[data-slot=native-select]]:bg-[#1a1715] [&_[data-slot=native-select]]:px-4 [&_[data-slot=native-select]]:font-bold [&_[data-slot=native-select]]:text-white"
+          className="w-full lg:w-52 [&_[data-slot=native-select]]:h-11 [&_[data-slot=native-select]]:rounded-full [&_[data-slot=native-select]]:border-black/15 [&_[data-slot=native-select]]:bg-white [&_[data-slot=native-select]]:px-4 [&_[data-slot=native-select]]:font-bold [&_[data-slot=native-select]]:text-black"
         >
           <NativeSelectOption value="todos">Todas as categorias</NativeSelectOption>
           {categories.map((entry) => (
@@ -115,7 +115,7 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
           aria-label="Filtrar por coleção"
           value={collection}
           onChange={(event) => setCollection(event.target.value)}
-          className="w-full lg:w-52 [&_[data-slot=native-select]]:h-11 [&_[data-slot=native-select]]:rounded-full [&_[data-slot=native-select]]:border-white/15 [&_[data-slot=native-select]]:bg-[#1a1715] [&_[data-slot=native-select]]:px-4 [&_[data-slot=native-select]]:font-bold [&_[data-slot=native-select]]:text-white"
+          className="w-full lg:w-52 [&_[data-slot=native-select]]:h-11 [&_[data-slot=native-select]]:rounded-full [&_[data-slot=native-select]]:border-black/15 [&_[data-slot=native-select]]:bg-white [&_[data-slot=native-select]]:px-4 [&_[data-slot=native-select]]:font-bold [&_[data-slot=native-select]]:text-black"
         >
           <NativeSelectOption value="todos">Todas as coleções</NativeSelectOption>
           {collections.map((entry) => (
@@ -127,7 +127,7 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
           aria-label="Ordenar produtos"
           value={sort}
           onChange={(event) => setSort(event.target.value as SortMode)}
-          className="hidden w-full lg:block lg:w-48 [&_[data-slot=native-select]]:h-11 [&_[data-slot=native-select]]:rounded-full [&_[data-slot=native-select]]:border-white/15 [&_[data-slot=native-select]]:bg-[#1a1715] [&_[data-slot=native-select]]:px-4 [&_[data-slot=native-select]]:font-bold [&_[data-slot=native-select]]:text-white"
+          className="hidden w-full lg:block lg:w-48 [&_[data-slot=native-select]]:h-11 [&_[data-slot=native-select]]:rounded-full [&_[data-slot=native-select]]:border-black/15 [&_[data-slot=native-select]]:bg-white [&_[data-slot=native-select]]:px-4 [&_[data-slot=native-select]]:font-bold [&_[data-slot=native-select]]:text-black"
         >
           <NativeSelectOption value="relevancia">Mais relevantes</NativeSelectOption>
           <NativeSelectOption value="menor-preco">Menor preço</NativeSelectOption>
@@ -141,7 +141,7 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
           <SlidersHorizontal className="size-4" /> {filtered.length} resultado{filtered.length === 1 ? '' : 's'}
         </p>
         {(query || category !== 'todos' || collection !== 'todos') && (
-          <Button variant="ghost" className="font-bold uppercase text-white hover:bg-white/10 hover:text-white" onClick={clearFilters}>
+          <Button variant="ghost" className="font-bold uppercase text-black hover:bg-black/5" onClick={clearFilters}>
             <X className="size-4" /> Limpar tudo
           </Button>
         )}
@@ -152,11 +152,11 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
           {filtered.map((product) => <ProductCard key={product.handle} product={product} featured />)}
         </div>
       ) : (
-        <div className="flex min-h-80 flex-col items-center justify-center rounded-2xl border border-white/15 bg-[#1a1715] px-6 text-center">
+        <div className="flex min-h-80 flex-col items-center justify-center rounded-2xl border border-black/10 bg-white px-6 text-center">
           <Search className="size-10 stroke-1" />
           <h2 className="mt-5 text-2xl font-black uppercase">Nenhum produto encontrado</h2>
-          <p className="mt-2 text-sm text-white/50">Tente outro termo ou limpe os filtros.</p>
-          <Button className="mt-6 h-11 rounded-full bg-[var(--brand-yellow)] px-6 font-black uppercase text-black" onClick={clearFilters}>Limpar filtros</Button>
+          <p className="mt-2 text-sm text-black/50">Tente outro termo ou limpe os filtros.</p>
+          <Button className="mt-6 h-11 rounded-full bg-[var(--brand-green)] px-6 font-black uppercase text-white hover:bg-[var(--brand-green-dark)]" onClick={clearFilters}>Limpar filtros</Button>
         </div>
       )}
     </div>

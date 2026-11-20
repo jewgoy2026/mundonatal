@@ -50,7 +50,7 @@ export type CatalogSnapshot = {
 
 export async function fetchCatalog(): Promise<CatalogSnapshot> {
   try {
-    const response = await fetch(`${catalogApiUrl}/v1/catalog`, { headers: { Accept: 'application/json' } });
+    const response = await fetch(`${catalogApiUrl}/v1/catalog`, { cache: 'no-store', headers: { Accept: 'application/json' } });
     if (!response.ok) throw new Error(`Catalog API returned ${response.status}`);
     const payload = (await response.json()) as { catalog?: CatalogSnapshot };
     if (!payload.catalog || !Array.isArray(payload.catalog.products)) throw new Error('Invalid catalog payload');
@@ -62,7 +62,7 @@ export async function fetchCatalog(): Promise<CatalogSnapshot> {
 
 export async function fetchProduct(handle: string): Promise<Product | undefined> {
   try {
-    const response = await fetch(`${catalogApiUrl}/v1/products/${encodeURIComponent(handle)}`, { headers: { Accept: 'application/json' } });
+    const response = await fetch(`${catalogApiUrl}/v1/products/${encodeURIComponent(handle)}`, { cache: 'no-store', headers: { Accept: 'application/json' } });
     if (response.status === 404) return undefined;
     if (!response.ok) throw new Error(`Product API returned ${response.status}`);
     const payload = (await response.json()) as { product?: Product };

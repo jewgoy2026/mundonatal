@@ -20,7 +20,7 @@ export function ProductCard({
   return (
     <article
       className={`group flex min-w-0 flex-col ${
-        featured ? 'overflow-hidden rounded-2xl border border-[var(--brand-gold)]/25 bg-white text-[var(--brand-red)] shadow-sm' : ''
+        featured ? 'overflow-hidden rounded-2xl border border-black/10 bg-white text-black shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg' : ''
       }`}
     >
       <a
@@ -44,7 +44,7 @@ export function ProductCard({
       <div className={`flex flex-1 flex-col ${featured ? 'p-4 sm:p-5' : 'pt-4'}`}>
         <p
           className={`text-[10px] font-black uppercase tracking-[0.12em] ${
-            featured ? 'text-[var(--brand-gold-dark)]' : 'text-black/45'
+            featured ? 'text-[var(--brand-green-dark)]' : 'text-black/45'
           }`}
         >
           {product.goals.includes('premium') ? 'Premium' : product.goals.includes('com-iluminacao') ? 'Iluminado' : 'Natal 2026'}
@@ -66,7 +66,7 @@ export function ProductCard({
                 key={entry.id}
                 className={`whitespace-nowrap rounded-full border px-2.5 py-1 text-[9px] ${
                   index === 0
-                    ? 'border-[var(--brand-gold)] bg-[var(--brand-gold)]/10 text-[var(--brand-red)]'
+                    ? 'border-[var(--brand-green)] bg-[var(--brand-green)]/10 text-[var(--brand-green-dark)]'
                     : 'border-black/10 bg-black/5 text-black/55'
                 }`}
               >
@@ -76,7 +76,7 @@ export function ProductCard({
           </div>
         )}
         <div className="mt-3 flex flex-wrap items-baseline gap-x-2">
-          <p className="text-lg font-black">{formatMoney(selectedVariant.price)}</p>
+          <p className="text-lg font-black text-[var(--brand-red)]">{formatMoney(selectedVariant.price)}</p>
           {selectedVariant.compareAt && selectedVariant.compareAt > selectedVariant.price && (
             <p className="text-xs text-black/40 line-through">
               {formatMoney(selectedVariant.compareAt)}
@@ -87,7 +87,7 @@ export function ProductCard({
         <Button
           className={`mt-4 h-10 w-full font-black uppercase ${
             featured
-              ? 'rounded-full bg-[var(--brand-red)] text-white hover:bg-[#4f0b1d]'
+              ? 'rounded-full bg-[var(--brand-green)] text-white hover:bg-[var(--brand-green-dark)]'
               : 'rounded-none'
           }`}
           disabled={!available}
@@ -98,7 +98,7 @@ export function ProductCard({
         {featured && (
           <a
             href={`/produtos/${product.handle}`}
-            className="mt-2 flex h-10 items-center justify-center gap-2 rounded-full border border-[var(--brand-red)]/40 text-xs font-black uppercase transition-colors hover:bg-[var(--brand-red)] hover:text-white"
+            className="mt-2 flex h-10 items-center justify-center gap-2 rounded-full border border-black/20 text-xs font-black uppercase text-black transition-colors hover:border-[var(--brand-green)] hover:bg-[var(--brand-green)] hover:text-white"
           >
             <Eye className="size-4" /> Ver mais
           </a>
