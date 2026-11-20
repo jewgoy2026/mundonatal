@@ -34,7 +34,7 @@ export function getGoalName(slug: string) {
   return goals.find((goal) => goal.slug === slug)?.name ?? slug;
 }
 
-export const catalogApiUrl = process.env.NEXT_PUBLIC_CATALOG_API_URL ?? 'https://api.tron-card.online/mundonatal';
+export const catalogApiUrl = process.env.NEXT_PUBLIC_CATALOG_API_URL ?? 'https://api-mundonatal.203-161-52-90.nip.io';
 
 export type CatalogSnapshot = {
   products: Product[];

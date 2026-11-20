@@ -1,7 +1,7 @@
 const API_URL = (
   process.env.COMMERCE_API_URL ??
   process.env.NEXT_PUBLIC_CATALOG_API_URL ??
-  'https://api.tron-card.online/mundonatal'
+  'https://api-mundonatal.203-161-52-90.nip.io'
 ).replace(/\/$/, '');
 
 export const dynamic = 'force-dynamic';
