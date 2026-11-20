@@ -8,6 +8,10 @@ const featuredHandles = [
   'arvore-de-natal-abeto-fraser-nevado',
   'guirlanda-vermelha-e-branca-nordica-com-led-70-cm',
   'the-holiday-aisle-54-in-4-piece-outdoor-christmas-decoration-25d-reindeer-family-yard-decoration-with-warm-white-led-lights-w122748968',
+  'the-holiday-aisle-solar-led-christmas-decorative-outdoor-waterproof-landscape-lights-w110003751',
+  'the-holiday-aisle-foldable-outdoor-led-light-balls-hanging-sphere-christmas-lights-with-warm-white-leds-metal-frame-globe-lights-for-patio-garden-holiday-party-decor',
+  'the-holiday-aisle-hutto-5ft-soldier-nutcracker-warm-lighted-leds-christmas-yard-decoration-outdoor-w114535735',
+  'kit-100-bolas-de-natal-vermelho-e-dourado-3-cm-4-cm-e-6-cm-ponteira-estrela-dourada',
 ];
 
 const categoryHandles: Record<string, string> = {

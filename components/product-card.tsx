@@ -25,7 +25,7 @@ export function ProductCard({
     >
       <a
         href={`/produtos/${product.handle}`}
-        className={`relative flex aspect-square items-center justify-center overflow-hidden p-6 sm:p-10 ${
+        className={`relative flex aspect-[4/5] items-center justify-center overflow-hidden ${
           featured ? 'bg-[var(--product-surface)]' : 'bg-[var(--product-surface)]'
         }`}
       >
@@ -37,7 +37,7 @@ export function ProductCard({
         <img
           src={product.images[0]}
           alt={product.shortName}
-          className="h-[84%] w-[84%] object-contain transition duration-500 ease-out group-hover:scale-[1.06]"
+          className="h-full w-full object-cover object-center transition duration-500 ease-out group-hover:scale-[1.04]"
           loading="lazy"
         />
       </a>
