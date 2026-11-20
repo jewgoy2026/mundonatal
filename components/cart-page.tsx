@@ -35,9 +35,9 @@ export function CartPage() {
             const selectedVariant = product?.variants.find((entry) => entry.id === item.variantId);
             if (!product || !selectedVariant) return null;
             return (
-              <article key={`${item.productHandle}-${item.variantId}`} className="grid grid-cols-[104px_1fr] gap-4 border-b border-white/20 py-5 sm:grid-cols-[140px_1fr] sm:gap-7 sm:py-7">
-                <a href={`/produtos/${product.handle}`} aria-label={`Abrir ${product.shortName}`} className="flex aspect-square items-center justify-center rounded-xl bg-[#1a1715] p-4">
-                  <img src={getVariantImage(product, selectedVariant.id)} alt="" className="h-full w-full object-contain" />
+              <article key={`${item.productHandle}-${item.variantId}`} className="grid grid-cols-[112px_minmax(0,1fr)] gap-4 border-b border-white/20 py-5 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-7 sm:py-7">
+                <a href={`/produtos/${product.handle}`} aria-label={`Abrir ${product.shortName}`} className="flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-white">
+                  <img src={getVariantImage(product, selectedVariant.id)} alt="" className="h-full w-full object-cover object-center" />
                 </a>
                 <div className="flex min-w-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
                   <div className="min-w-0">

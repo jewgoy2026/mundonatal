@@ -1,11 +1,13 @@
 const publicStoreHosts = new Set([
+  'reinonatalino.shop',
+  'www.reinonatalino.shop',
   'mundonatal.oficialtrustpaycard.workers.dev',
   'mundonatal-backup.oficialtrustpaycard.workers.dev',
   'mundodonatal.com',
 ]);
 
 export const defaultSiteOrigin =
-  'https://mundonatal.oficialtrustpaycard.workers.dev';
+  'https://reinonatalino.shop';
 
 function normalizeHost(value: string | null | undefined) {
   return value?.split(',')[0]?.trim().toLowerCase().replace(/\.$/, '') ?? '';

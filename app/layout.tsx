@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mundonatal.workers.dev'),
+  metadataBase: new URL('https://reinonatalino.shop'),
   title: 'Mundo do Natal | A magia começa dentro de casa',
   description: 'Árvores, guirlandas, iluminação e decoração para transformar a sua casa no Natal.',
   icons: {

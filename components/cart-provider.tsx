@@ -247,7 +247,7 @@ function CartDrawer() {
 
   return (
     <Sheet open={cartOpen} onOpenChange={setCartOpen}>
-      <SheetContent className="w-full gap-0 border-white/10 bg-[var(--brand-black)] p-0 text-white data-[side=right]:sm:max-w-[600px]">
+      <SheetContent className="w-full gap-0 border-white/10 bg-[var(--brand-black)] p-0 text-white data-[side=right]:w-full data-[side=right]:max-w-none data-[side=right]:sm:max-w-[600px]">
         <SheetHeader className="border-b border-white/15 p-6">
           <SheetTitle className="brand-heading text-3xl uppercase text-white sm:text-4xl">
             Seu carrinho
@@ -272,13 +272,13 @@ function CartDrawer() {
                 const selectedVariant = product?.variants.find((entry) => entry.id === item.variantId);
                 if (!product || !selectedVariant) return null;
                 return (
-                  <article key={`${item.productHandle}-${item.variantId}`} className="grid grid-cols-[92px_1fr] gap-4 border-b border-white/15 pb-6">
+                  <article key={`${item.productHandle}-${item.variantId}`} className="grid grid-cols-[104px_minmax(0,1fr)] gap-4 border-b border-white/15 pb-6 sm:grid-cols-[124px_minmax(0,1fr)] sm:gap-5">
                     <a
                       href={`/produtos/${product.handle}`}
                       aria-label={`Abrir ${product.shortName}`}
-                      className="flex aspect-square items-center justify-center rounded-xl bg-[#1a1715] p-3"
+                      className="flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-white"
                     >
-                      <img src={getVariantImage(product, selectedVariant.id)} alt="" className="h-full w-full object-contain" />
+                      <img src={getVariantImage(product, selectedVariant.id)} alt="" className="h-full w-full object-cover object-center" />
                     </a>
                     <div className="min-w-0">
                       <div className="flex items-start justify-between gap-3">
@@ -298,7 +298,7 @@ function CartDrawer() {
                           <Trash2 className="size-4" />
                         </Button>
                       </div>
-                      <div className="mt-4 flex items-center justify-between gap-3">
+                      <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
                         <div className="flex h-9 items-center rounded-full border border-white/25">
                           <Button
                             variant="ghost"
@@ -320,7 +320,7 @@ function CartDrawer() {
                             <Plus className="size-3" />
                           </Button>
                         </div>
-                        <p className="text-sm font-black">{formatMoney(selectedVariant.price * item.quantity)}</p>
+                        <p className="whitespace-nowrap text-sm font-black">{formatMoney(selectedVariant.price * item.quantity)}</p>
                       </div>
                     </div>
                   </article>
