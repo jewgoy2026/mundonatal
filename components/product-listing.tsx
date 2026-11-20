@@ -7,14 +7,14 @@ import { ProductCard } from '@/components/product-card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { NativeSelect, NativeSelectOption } from '@/components/ui/native-select';
-import { categories, goals, type Product } from '@/lib/catalog';
+import { categories, collections, type Product } from '@/lib/catalog';
 
 type SortMode = 'relevancia' | 'menor-preco' | 'maior-preco' | 'az';
 
 export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }) {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('todos');
-  const [goal, setGoal] = useState('todos');
+  const [collection, setCollection] = useState('todos');
   const [sort, setSort] = useState<SortMode>('relevancia');
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -22,7 +22,7 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
     const params = new URLSearchParams(window.location.search);
     setQuery(params.get('q') ?? '');
     setCategory(params.get('categoria') ?? 'todos');
-    setGoal(params.get('objetivo') ?? 'todos');
+    setCollection(params.get('colecao') ?? params.get('objetivo') ?? 'todos');
   }, []);
 
   const filtered = useMemo(() => {
@@ -39,7 +39,7 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
       return (
         (!normalizedQuery || searchable.includes(normalizedQuery)) &&
         (category === 'todos' || product.category === category) &&
-        (goal === 'todos' || product.goals.includes(goal))
+        (collection === 'todos' || product.collections.includes(collection))
       );
     });
     return [...result].sort((a, b) => {
@@ -50,12 +50,12 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
       if (sort === 'az') return a.shortName.localeCompare(b.shortName, 'pt-BR');
       return sourceProducts.indexOf(a) - sourceProducts.indexOf(b);
     });
-  }, [sourceProducts, query, category, goal, sort]);
+  }, [sourceProducts, query, category, collection, sort]);
 
   const clearFilters = () => {
     setQuery('');
     setCategory('todos');
-    setGoal('todos');
+    setCollection('todos');
     window.history.replaceState({}, '', '/produtos');
   };
 
@@ -113,12 +113,12 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
 
         <NativeSelect
           aria-label="Filtrar por coleção"
-          value={goal}
-          onChange={(event) => setGoal(event.target.value)}
+          value={collection}
+          onChange={(event) => setCollection(event.target.value)}
           className="w-full lg:w-52 [&_[data-slot=native-select]]:h-11 [&_[data-slot=native-select]]:rounded-full [&_[data-slot=native-select]]:border-white/15 [&_[data-slot=native-select]]:bg-[#1a1715] [&_[data-slot=native-select]]:px-4 [&_[data-slot=native-select]]:font-bold [&_[data-slot=native-select]]:text-white"
         >
           <NativeSelectOption value="todos">Todas as coleções</NativeSelectOption>
-          {goals.map((entry) => (
+          {collections.map((entry) => (
             <NativeSelectOption key={entry.slug} value={entry.slug}>{entry.name}</NativeSelectOption>
           ))}
         </NativeSelect>
@@ -140,7 +140,7 @@ export function ProductListing({ sourceProducts }: { sourceProducts: Product[] }
         <p className="flex items-center gap-2 text-sm font-black uppercase">
           <SlidersHorizontal className="size-4" /> {filtered.length} resultado{filtered.length === 1 ? '' : 's'}
         </p>
-        {(query || category !== 'todos' || goal !== 'todos') && (
+        {(query || category !== 'todos' || collection !== 'todos') && (
           <Button variant="ghost" className="font-bold uppercase text-white hover:bg-white/10 hover:text-white" onClick={clearFilters}>
             <X className="size-4" /> Limpar tudo
           </Button>

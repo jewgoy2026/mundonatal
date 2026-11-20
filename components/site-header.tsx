@@ -5,7 +5,7 @@ import { Menu, Search, ShoppingBag, X } from 'lucide-react';
 import { useCart } from '@/components/cart-provider';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { categories } from '@/lib/catalog';
+import { collections } from '@/lib/catalog';
 
 const LOGO = 'https://mundodonatal.com/cdn/shop/t/10/assets/logo-mundo-do-natal-favicon-v1.png?v=145563815753261193141794234297';
 
@@ -27,9 +27,9 @@ export function SiteHeader() {
             <span className="brand-heading hidden text-2xl leading-none sm:block lg:text-3xl">Mundo do Natal</span>
           </a>
           <nav className="ml-auto hidden items-center gap-6 text-sm font-bold lg:flex">
-            <a href="/produtos?categoria=arvores-de-natal" className="hover:text-[var(--brand-gold-dark)]">Árvores</a>
-            <a href="/produtos?categoria=decoracao-de-natal" className="hover:text-[var(--brand-gold-dark)]">Decoração</a>
-            <a href="/produtos?categoria=iluminacao" className="hover:text-[var(--brand-gold-dark)]">Iluminação</a>
+            <a href="/produtos?colecao=arvores-de-natal" className="hover:text-[var(--brand-gold-dark)]">Árvores</a>
+            <a href="/produtos?colecao=enfeites" className="hover:text-[var(--brand-gold-dark)]">Enfeites</a>
+            <a href="/produtos?colecao=luzes" className="hover:text-[var(--brand-gold-dark)]">Luzes</a>
             <a href="/produtos" className="hover:text-[var(--brand-gold-dark)]">Todos os produtos</a>
           </nav>
           <div className="ml-auto flex items-center lg:ml-3">
@@ -42,7 +42,7 @@ export function SiteHeader() {
         </div>
         {searchOpen && <div className="border-t border-[var(--brand-gold)]/25 px-4 py-4"><form action="/produtos" className="mx-auto flex max-w-2xl gap-2"><Input name="q" placeholder="Busque árvores, guirlandas, luzes..." className="h-12 border-[var(--brand-red)]/25 bg-white" /><Button className="h-12 bg-[var(--brand-red)] text-white">Buscar</Button></form></div>}
       </header>
-      {menuOpen && <div className="fixed inset-0 z-[60] bg-[var(--brand-red)] text-white lg:hidden"><div className="flex items-center justify-between border-b border-white/15 p-5"><span className="brand-heading text-2xl">Mundo do Natal</span><Button variant="ghost" size="icon-lg" className="text-white" onClick={() => setMenuOpen(false)}><X /></Button></div><nav className="grid gap-1 p-5">{categories.map((category) => <a key={category.slug} href={`/produtos?categoria=${category.slug}`} className="border-b border-white/15 py-4 text-xl font-bold" onClick={() => setMenuOpen(false)}>{category.name}</a>)}<a href="/produtos" className="mt-4 rounded-full bg-[var(--brand-gold)] px-5 py-4 text-center font-bold text-[var(--brand-red)]">Ver catálogo completo</a></nav></div>}
+      {menuOpen && <div className="fixed inset-0 z-[60] overflow-y-auto bg-[var(--brand-red)] text-white lg:hidden"><div className="flex items-center justify-between border-b border-white/15 p-5"><span className="brand-heading text-2xl">Mundo do Natal</span><Button variant="ghost" size="icon-lg" className="text-white" onClick={() => setMenuOpen(false)}><X /></Button></div><nav className="grid gap-1 p-5">{collections.map((collection) => <a key={collection.slug} href={`/produtos?colecao=${collection.slug}`} className="border-b border-white/15 py-4 text-lg font-bold" onClick={() => setMenuOpen(false)}>{collection.name}</a>)}<a href="/produtos" className="mt-4 rounded-full bg-[var(--brand-gold)] px-5 py-4 text-center font-bold text-[var(--brand-red)]">Ver catálogo completo</a></nav></div>}
     </>
   );
 }

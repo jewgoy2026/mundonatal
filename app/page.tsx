@@ -14,17 +14,8 @@ const featuredHandles = [
   'kit-100-bolas-de-natal-vermelho-e-dourado-3-cm-4-cm-e-6-cm-ponteira-estrela-dourada',
 ];
 
-const categoryHandles: Record<string, string> = {
-  'arvores-de-natal': 'arvore-de-natal-abeto-fraser-imperial',
-  'decoracao-de-natal': 'escada-luz-em-led-colorido-decoracao-de-natal-com-papai-noel-pendurado-3m',
-  'figuras-natalinas': 'the-holiday-aisle-30-pre-lit-fabric-snowman-w003572991',
-  iluminacao: 'cortina-de-led-com-300-luzes-e-8-modos-para-natal',
-  guirlandas: 'guirlanda-vermelha-e-branca-nordica-com-led-70-cm',
-  enfeites: 'kit-16-enfeites-de-natal-tradicional-vermelho-e-verde-com-papai-noel-presentes-e-arvores',
-};
-
 export default async function Home() {
-  const { products, categories } = await fetchCatalog();
+  const { products, collections } = await fetchCatalog();
   const featured = featuredHandles.map((handle) => products.find((product) => product.handle === handle)).filter((product): product is NonNullable<typeof product> => Boolean(product));
 
   return (
@@ -55,12 +46,12 @@ export default async function Home() {
       <section className="bg-[var(--brand-red)] px-4 py-16 text-white sm:px-8 lg:py-24">
         <div className="mx-auto max-w-[1360px]">
           <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Encontre o seu Natal</p>
-          <h2 className="brand-heading mt-3 text-center text-4xl sm:text-6xl">Compre por categoria</h2>
-          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-            {categories.map((category) => {
-              const product = products.find((item) => item.handle === categoryHandles[category.slug]) ?? products.find((item) => item.category === category.slug);
+          <h2 className="brand-heading mt-3 text-center text-4xl sm:text-6xl">Compre por coleção</h2>
+          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-7">
+            {collections.map((collection) => {
+              const product = products.find((item) => item.collections.includes(collection.slug));
               if (!product) return null;
-              return <a key={category.slug} href={`/produtos?categoria=${category.slug}`} className="group overflow-hidden rounded-t-[5rem] border border-white/15 bg-white/5 p-3 text-center"><span className="flex aspect-[4/5] items-center justify-center overflow-hidden rounded-t-[4.4rem] bg-[var(--brand-cream)] p-4"><img src={product.images[0]} alt="" className="h-full w-full object-contain transition duration-500 group-hover:scale-105" loading="lazy" /></span><strong className="block px-2 py-5 text-sm">{category.name}</strong></a>;
+              return <a key={collection.slug} href={`/produtos?colecao=${collection.slug}`} className="group overflow-hidden rounded-t-[5rem] border border-white/15 bg-white/5 p-3 text-center"><span className="flex aspect-[4/5] items-center justify-center overflow-hidden rounded-t-[4.4rem] bg-[var(--brand-cream)] p-4"><img src={product.images[0]} alt="" className="h-full w-full object-contain transition duration-500 group-hover:scale-105" loading="lazy" /></span><strong className="block px-2 py-5 text-sm">{collection.name}</strong></a>;
             })}
           </div>
         </div>

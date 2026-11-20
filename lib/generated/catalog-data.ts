@@ -14,6 +14,7 @@ export type Product = {
   description: string;
   category: string;
   goals: string[];
+  collections: string[];
   badge?: string;
   images: string[];
   variants: ProductVariant[];
@@ -69,6 +70,65 @@ export const goals = [
   }
 ] as const;
 
+export const collections = [
+  {
+    "slug": "arvores-de-natal",
+    "name": "Árvores de Natal"
+  },
+  {
+    "slug": "imagens-natalinas",
+    "name": "Figuras Natalinas"
+  },
+  {
+    "slug": "enfeites",
+    "name": "Enfeites"
+  },
+  {
+    "slug": "saias-de-arvores",
+    "name": "Saias de Árvores"
+  },
+  {
+    "slug": "topo-de-arvores",
+    "name": "Topo de Árvores"
+  },
+  {
+    "slug": "mini-arvores",
+    "name": "Mini Árvores"
+  },
+  {
+    "slug": "festao-natalino",
+    "name": "Festão Natalino"
+  },
+  {
+    "slug": "luzes",
+    "name": "Luzes"
+  },
+  {
+    "slug": "guirlandas-natalinas",
+    "name": "Guirlandas Natalinas"
+  },
+  {
+    "slug": "bonecos-de-neve",
+    "name": "Bonecos de Neve"
+  },
+  {
+    "slug": "papai-noel",
+    "name": "Papai Noel"
+  },
+  {
+    "slug": "pinguins-e-outros-animais",
+    "name": "Pinguins e Outros Animais"
+  },
+  {
+    "slug": "presepios-de-natal",
+    "name": "Presépios de Natal"
+  },
+  {
+    "slug": "renas-de-natal",
+    "name": "Renas de Natal"
+  }
+] as const;
+
 export const products: Product[] = [
   {
     "handle": "the-holiday-aisle-solar-led-christmas-decorative-outdoor-waterproof-landscape-lights-w110003751",
@@ -79,6 +139,9 @@ export const products: Product[] = [
     "goals": [
       "colecao-natal-2026",
       "com-iluminacao"
+    ],
+    "collections": [
+      "bonecos-de-neve"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Solar_LED_Christmas_Decorative_Outdoor_Waterproof_Landscape_Lights-416219711_9b747d51-cec2-4a95-8e72-1dc22adf312b.jpg?v=1791689548",
@@ -105,6 +168,9 @@ export const products: Product[] = [
       "colecao-natal-2026",
       "com-iluminacao"
     ],
+    "collections": [
+      "luzes"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Foldable_Outdoor_LED_Light_Balls_2C_Hanging_Sphere_Christmas_Lights_with_Warm_White_LEDs_2C_Metal_Frame_Globe_Lights_for_Patio_2C_Garden_2C_Holiday_26_Party_Decor-1002109152_e98f8080-4b18-4b3c-9eff-aca3771dc8f6.jpg?v=1791689529",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Foldable_Outdoor_LED_Light_Balls_2C_Hanging_Sphere_Christmas_Lights_with_Warm_White_LEDs_2C_Metal_Frame_Globe_Lights_for_Patio_2C_Garden_2C_Holiday_26_Party_Decor-1002109152.jpg?v=1791689529",
@@ -129,6 +195,9 @@ export const products: Product[] = [
     "goals": [
       "colecao-natal-2026",
       "com-iluminacao"
+    ],
+    "collections": [
+      "bonecos-de-neve"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/30_22_Pre-Lit_Fabric_Snowman_5f592650-7475-4340-8bdb-164cdd7976a9.jpg?v=1791689502",
@@ -155,6 +224,9 @@ export const products: Product[] = [
       "colecao-natal-2026",
       "com-iluminacao"
     ],
+    "collections": [
+      "imagens-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Christmas_Outdoor_Decoration.jpg?v=1791689485",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Christmas_Outdoor_Decoration_8047ba80-dae1-4018-b640-98d3aa02dbfb.jpg?v=1791689485",
@@ -179,6 +251,9 @@ export const products: Product[] = [
     "goals": [
       "colecao-natal-2026",
       "com-iluminacao"
+    ],
+    "collections": [
+      "mini-arvores"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Outdoor_Christmas_Decorations_2C_21_22_Solar_Christmas_Tree_Stake_Lights_Outdoor_Waterproof_Decorations_2C_Solar_Candy_Cane_Christmas_Decorations_Outdoor_With_10_Modes_2C_Outside_Wate_59213893-57af-47ba-b676-db4595590385.jpg?v=1791689464",
@@ -205,6 +280,9 @@ export const products: Product[] = [
       "colecao-natal-2026",
       "com-iluminacao"
     ],
+    "collections": [
+      "luzes"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/60_in._Outdoor_Christmas_Decoration_Lamp_Post_with_Cool_White_LEDs_and_Pre-Lit_Red_Bow_2C_Black_4d98f859-dd6e-491d-b705-c6ba49dfe442.jpg?v=1791689440",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/60_in._Outdoor_Christmas_Decoration_Lamp_Post_with_Cool_White_LEDs_and_Pre-Lit_Red_Bow_2C_Black_e0a5b626-b21c-4e81-b5a9-4ad408923ca4.jpg?v=1791689440",
@@ -229,6 +307,9 @@ export const products: Product[] = [
     "goals": [
       "colecao-natal-2026",
       "com-iluminacao"
+    ],
+    "collections": [
+      "luzes"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Outdoor_Christmas_Decorations_2C_19.88_E2_80_9D_Solar_Candy_Cane_Christmas_Decorations_Outdoor_Yard_With_10_Modes_And_144_Bright_Led_2C_Outside_Waterproof_Christmas_Candy_Cane_Lights_faf48fd3-02e1-4c59-a24d-3f7c5587872e.jpg?v=1791689421",
@@ -255,6 +336,9 @@ export const products: Product[] = [
       "colecao-natal-2026",
       "com-iluminacao"
     ],
+    "collections": [
+      "renas-de-natal"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/54_in._4-Piece_Outdoor_Christmas_Decoration_2.5D_Reindeer_Family_Yard_Decoration_with_Warm_White_LED_Lights-738505381.jpg?v=1791689389",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/54_in._4-Piece_Outdoor_Christmas_Decoration_2.5D_Reindeer_Family_Yard_Decoration_with_Warm_White_LED_Lights-738505381_62ce56ff-5a2e-49dd-b06f-6d7e51dc9fd2.jpg?v=1791689389",
@@ -280,6 +364,9 @@ export const products: Product[] = [
       "colecao-natal-2026",
       "com-iluminacao"
     ],
+    "collections": [
+      "pinguins-e-outros-animais"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/2.8ft_Lighted_Christmas_Polar_Bear_Outdoor_Decoration_2ea18ea1-5873-4955-a2c0-f48ed8052084.jpg?v=1791689370",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/2.8ft_Lighted_Christmas_Polar_Bear_Outdoor_Decoration.jpg?v=1791689369",
@@ -304,6 +391,9 @@ export const products: Product[] = [
     "goals": [
       "colecao-natal-2026",
       "com-iluminacao"
+    ],
+    "collections": [
+      "luzes"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/72_22_Lighted_Outdoor_Christmas_Lamp_Post_Display_2C_Weather-Resistant_Lamppost-1891919823_b6be8418-bb28-4682-b57e-c29affe69756.jpg?v=1791689351",
@@ -343,6 +433,9 @@ export const products: Product[] = [
     "goals": [
       "colecao-natal-2026",
       "com-iluminacao"
+    ],
+    "collections": [
+      "imagens-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/5_FT._Outdoor_Christmas_Decoration_Nutcracker_Yard_Decoration_with_Warm_White_LED_Lights-957545190.jpg?v=1791689311",
@@ -390,6 +483,9 @@ export const products: Product[] = [
       "colecao-natal-2026",
       "com-iluminacao"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/3-Piece_LED_Hanging_Ball_Ornament_Set_a45eb2b1-d861-44bf-872d-6173bf189b74.jpg?v=1791689286",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/3-Piece_LED_Hanging_Ball_Ornament_Set.jpg?v=1791689286",
@@ -414,6 +510,9 @@ export const products: Product[] = [
     "goals": [
       "colecao-natal-2026",
       "com-iluminacao"
+    ],
+    "collections": [
+      "renas-de-natal"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Freestanding_Christmas_Outdoor_Decoration-2060525072-2060525074.jpg?v=1791689263",
@@ -458,6 +557,9 @@ export const products: Product[] = [
       "colecao-natal-2026",
       "com-iluminacao"
     ],
+    "collections": [
+      "bonecos-de-neve"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/4FT_3PCS_Snowman_Family_Set_2C_2D_Large_Outdoor_Christmas_Decorations_2C_Light_Up_Christmas_Decor_With_130_Warm_White_LED_Lights_2C_Lighted_Holiday_Displays_For_Yard_Decor_2C_Porch_2C_1accdf7e-b5a1-4a17-948c-b0ef81541ac5.jpg?v=1791689244",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/4FT_3PCS_Snowman_Family_Set_2C_2D_Large_Outdoor_Christmas_Decorations_2C_Light_Up_Christmas_Decor_With_130_Warm_White_LED_Lights_2C_Lighted_Holiday_Displays_For_Yard_Decor_2C_Porch_2C.jpg?v=1791689244",
@@ -483,6 +585,9 @@ export const products: Product[] = [
       "colecao-natal-2026",
       "com-iluminacao"
     ],
+    "collections": [
+      "bonecos-de-neve"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/4_Piece_Snowman_Family_Christmas_Lighted_Display_Set_Collapsible_Snowmen_Yard_Decor_b80d9081-30e7-4172-9ad6-2b72b787487c.jpg?v=1791689153",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/4_Piece_Snowman_Family_Christmas_Lighted_Display_Set_Collapsible_Snowmen_Yard_Decor_1366bffe-49ed-4b42-a33c-0bcb8e2db5a3.jpg?v=1791689153",
@@ -507,6 +612,9 @@ export const products: Product[] = [
     "goals": [
       "premium",
       "exclusivos"
+    ],
+    "collections": [
+      "topo-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -552,6 +660,9 @@ export const products: Product[] = [
       "premium",
       "exclusivos"
     ],
+    "collections": [
+      "topo-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/23555.webp?v=1791401329",
@@ -585,6 +696,9 @@ export const products: Product[] = [
       "premium",
       "exclusivos"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/D_NQ_NP_2X_810092-MLB115345133894_082026-F-kit-100-bola--brinde-estrela-enfeite-arvore-natal-decoracao.webp?v=1790187046",
@@ -614,6 +728,9 @@ export const products: Product[] = [
       "premium",
       "exclusivos"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/D_NQ_NP_2X_871775-MLB115344009800_082026-F-kit-100-bola--brinde-estrela-enfeite-arvore-natal-decoracao.webp?v=1790186673",
@@ -641,6 +758,9 @@ export const products: Product[] = [
     "goals": [
       "premium",
       "exclusivos"
+    ],
+    "collections": [
+      "enfeites"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -671,6 +791,9 @@ export const products: Product[] = [
       "premium",
       "exclusivos"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/566.webp?v=1790129001",
@@ -695,6 +818,9 @@ export const products: Product[] = [
     "goals": [
       "premium",
       "exclusivos"
+    ],
+    "collections": [
+      "enfeites"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -722,6 +848,9 @@ export const products: Product[] = [
       "premium",
       "exclusivos"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/73466.webp?v=1790123293",
@@ -747,6 +876,9 @@ export const products: Product[] = [
       "premium",
       "exclusivos"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/3457342.webp?v=1790121464",
@@ -770,6 +902,9 @@ export const products: Product[] = [
     "goals": [
       "premium",
       "exclusivos"
+    ],
+    "collections": [
+      "enfeites"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -795,6 +930,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/45777.webp?v=1790099979",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/5775.webp?v=1790099979",
@@ -819,6 +957,9 @@ export const products: Product[] = [
     "goals": [
       "premium",
       "exclusivos"
+    ],
+    "collections": [
+      "enfeites"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -846,6 +987,9 @@ export const products: Product[] = [
       "premium",
       "exclusivos"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/234121.webp?v=1789748262",
@@ -872,6 +1016,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-22%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/PL20010_1_Traditional-Multi-Coloured-Pickwick-Christmas-Tree-Lights-Indoor.jpg?v=1789486882"
@@ -896,6 +1043,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-25%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/PL18040_multi-coloured-pinecone-c7-Christmas-fairy-lights_P1.jpg?v=1789486878"
@@ -919,6 +1069,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -963,6 +1116,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-pinheiro-branco-vermont-nevado-1.webp?v=1789605884",
@@ -1005,6 +1161,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -1050,6 +1209,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-pinheiro-acucarado-nevado-1.webp?v=1789605879",
@@ -1094,6 +1256,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-pinheiro-noruegues-do-norte-1.webp?v=1789605877",
@@ -1136,6 +1301,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-pinheiro-silverado-slim-nevado-1.webp?v=1789605875",
@@ -1177,6 +1345,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -1221,6 +1392,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -1280,6 +1454,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-abeto-golden-aspen-estate-1.webp?v=1789605868",
@@ -1314,6 +1491,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -1390,6 +1570,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -1498,6 +1681,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-pinheiro-yukon-1.webp?v=1789605860",
@@ -1576,6 +1762,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -1691,6 +1880,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-pinheiro-lake-tahoe-1.webp?v=1789605853",
@@ -1762,6 +1954,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -1849,6 +2044,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-abeto-prateado-europeu-1.webp?v=1789605848",
@@ -1913,6 +2111,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -1979,6 +2180,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-grande-abeto-noruegues-1.webp?v=1789605842",
@@ -2043,6 +2247,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -2207,6 +2414,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-abeto-europeu-1.webp?v=1789605837",
@@ -2264,6 +2474,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -2421,6 +2634,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-pinheiro-verde-classico-1.webp?v=1789605830",
@@ -2485,6 +2701,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -2551,6 +2770,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-pinheiro-sanibel-1.webp?v=1789605825",
@@ -2615,6 +2837,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -2701,6 +2926,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -2871,6 +3099,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "premium"
+    ],
+    "collections": [
+      "arvores-de-natal"
     ],
     "badge": "Premium",
     "images": [
@@ -3133,6 +3364,9 @@ export const products: Product[] = [
     "goals": [
       "premium"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/arvore-de-natal-abeto-balsamico-imperial-1.webp?v=1789605808",
@@ -3332,6 +3566,9 @@ export const products: Product[] = [
       "premium",
       "com-iluminacao"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "badge": "Premium",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/abeto-fraser-imperial-led.webp?v=1789602080",
@@ -3507,6 +3744,9 @@ export const products: Product[] = [
     "goals": [
       "com-iluminacao"
     ],
+    "collections": [
+      "arvores-de-natal"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Classic-Blue-Spruce-Artificial-Christmas-Tree_LEDCA_SSC-10.webp?v=1789575554",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Classic-Blue-Spruce-Artificial-Christmas-Tree_LEDCA_Closeup-10.webp?v=1789575555",
@@ -3672,6 +3912,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "mini-arvores"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/7685.webp?v=1789526741",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/4677.webp?v=1789526741",
@@ -3695,6 +3938,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "mini-arvores"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/456.webp?v=1789526407",
@@ -3720,6 +3966,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -3756,6 +4005,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -3794,6 +4046,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/32434.webp?v=1789525097",
@@ -3828,6 +4083,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -3866,6 +4124,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/645.webp?v=1789524402",
@@ -3901,6 +4162,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -3939,6 +4203,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/32455.webp?v=1789524099",
@@ -3975,6 +4242,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -4014,6 +4284,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/SKT-2041002_Large-Christmas-Drum-Tree-Collar_SSC.webp?v=1789519575",
@@ -4052,6 +4325,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/3455.webp?v=1789518904",
@@ -4087,6 +4363,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -4125,6 +4404,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/3452.webp?v=1789511251",
@@ -4161,6 +4443,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -4199,6 +4484,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/6754564.webp?v=1789509241"
@@ -4232,6 +4520,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -4268,6 +4559,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -4306,6 +4600,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/76567.webp?v=1789508579"
@@ -4339,6 +4636,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -4377,6 +4677,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/432.jpg?v=1789507764",
@@ -4413,6 +4716,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/12.webp?v=1789506936",
@@ -4448,6 +4754,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -4486,6 +4795,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/SKT-2541003-1_60-inch-Midnight-Blue-Embossed-Velvet-Luxe-Tree-Skirt_SSC.webp?v=1789494698",
@@ -4522,6 +4834,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "saias-de-arvores"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -4560,6 +4875,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "saias-de-arvores"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/SKT-2541004_60in-Red-Velvet-Tree-Skirt_SSC.webp?v=1789491113",
@@ -4597,6 +4915,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-25%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/L4F2309_1.jpg?v=1789486881",
@@ -4622,6 +4943,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-38%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/LL21075_50-Warm-White-Star-Outdoor-Micro-Fairy-Lights.jpg?v=1789486880"
@@ -4645,6 +4969,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "luzes"
     ],
     "badge": "-14%",
     "images": [
@@ -4672,6 +4999,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "luzes"
     ],
     "badge": "-43%",
     "images": [
@@ -4704,6 +5034,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-14%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/ML100MG_80-Multi-Coloured-LED-Fairy-Lights_P1.jpg?v=1789486875",
@@ -4734,6 +5067,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-33%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/PL18035_100-Warm-White-Traditional-Christmas-Tree-Lights-Close_P1.jpg?v=1789486874",
@@ -4762,6 +5098,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-33%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/ML100BG_Blue-LED-Connectable-Fairy-Lights_P1_70986366-19c1-4e36-8edd-7d32935fbdf1.jpg?v=1789486873",
@@ -4787,6 +5126,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "luzes"
     ],
     "badge": "-33%",
     "images": [
@@ -4819,6 +5161,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-33%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/ML100MG_80-Multi-Coloured-LED-Fairy-Lights_P1_ed7075ff-867c-4f29-a79d-0db269514ee2.jpg?v=1789486871",
@@ -4848,6 +5193,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "luzes"
     ],
     "badge": "-65%",
     "images": [
@@ -4891,6 +5239,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-32%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/CortinadeLedcom300Luzese8Modos5.jpg?v=1789486869",
@@ -4932,6 +5283,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "luzes"
     ],
     "badge": "-43%",
     "images": [
@@ -4989,6 +5343,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "luzes"
+    ],
     "badge": "-34%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Ab6132fc238ae4a0f965aefb5524b8f29Z.jpg?v=1789486867",
@@ -5018,6 +5375,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "luzes"
     ],
     "badge": "-60%",
     "images": [
@@ -5068,6 +5428,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "luzes"
     ],
     "badge": "-38%",
     "images": [
@@ -5128,6 +5491,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "luzes"
     ],
     "badge": "-42%",
     "images": [
@@ -5208,6 +5574,9 @@ export const products: Product[] = [
     "goals": [
       "com-iluminacao"
     ],
+    "collections": [
+      "imagens-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Animated_LED_Christmas_Bell_Lights__Christmas_Decorations__Christow_b846ecca7eb8efdf35abdab72d055512.webp?v=1789486549",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Animated_LED_Christmas_Bell_Lights__Christmas_Decorations__Christow_5b0c92a6732c431d7cda688259ca406b.webp?v=1789486549",
@@ -5231,6 +5600,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "com-iluminacao"
+    ],
+    "collections": [
+      "imagens-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Animated_Nutcracker_Rope_Light__Christmas_Decorations__Christow_bae885617722299c3b8c207f85c7a51f.webp?v=1789486548",
@@ -5256,6 +5628,10 @@ export const products: Product[] = [
     "goals": [
       "com-iluminacao"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "papai-noel"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Happy_Santa_Christmas_Rope_Light__Christmas_Decorations__Christow_95eca809df6b20f37981e886ad417d7e.webp?v=1789486546",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Happy_Santa_Christmas_Rope_Light__Christmas_Decorations__Christow_6afa2a34d2fe49d392eeb4c77299e1b2.webp?v=1789486547",
@@ -5279,6 +5655,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "com-iluminacao"
+    ],
+    "collections": [
+      "imagens-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Shooting_Star_Scene_Rope_Light__Christmas_Lights__Christow_5c824919457fea22dcadf782875f803b.webp?v=1789486546",
@@ -5304,6 +5683,10 @@ export const products: Product[] = [
     "goals": [
       "com-iluminacao"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "papai-noel"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Santa__Star_Wall_Light__Christmas_Decorations__Christow_500319ff2a14a22b3a68638bd3f23242.webp?v=1789486545",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Santa__Star_Wall_Light__Christmas_Decorations__Christow_fc581615fe9756eced15706aab937f84.webp?v=1789486544",
@@ -5327,6 +5710,9 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "com-iluminacao"
+    ],
+    "collections": [
+      "imagens-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Merry_Christmas_Rope_Light_Sign__Christmas_Decorations__Christow_dd92612bff03def2c52f26431c5764cd.webp?v=1789486544",
@@ -5352,6 +5738,10 @@ export const products: Product[] = [
     "goals": [
       "com-iluminacao"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "bonecos-de-neve"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Animated_Juggling_Snowman_Rope_Light__Christmas_Decorations__Christow_c4751cb8162e5fc1fdf61cbc67b259e6.webp?v=1789486543",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Animated_Juggling_Snowman_Rope_Light__Christmas_Decorations__Christow_4599cf549daa5157258f4402ad8eb556.webp?v=1789486543",
@@ -5375,6 +5765,9 @@ export const products: Product[] = [
     "category": "guirlandas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2341011_Outdoor-Lit-Nordic-Splendor-Wreath_SSC.webp?v=1789486016",
@@ -5400,6 +5793,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-1741018_White-Berry-Cypress-Wreath_24in_SSC.webp?v=1789486015",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-1741018_White-Berry-Cypress-Foliage_Lifestyle-40.webp?v=1789486015",
@@ -5423,6 +5819,9 @@ export const products: Product[] = [
     "category": "guirlandas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2341026_Marbled-Outdoor-Lit-Poinsettia-Celebration-Wreath_SSC.webp?v=1789486014",
@@ -5448,6 +5847,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2241021_Outdoor-Christmas-Charm-Wreath_28in_LEDC_Closeup-15_e3125220-b112-41aa-86ca-cb2f41934196.webp?v=1789486013",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2241021_Outdoor-Christmas-Charm-Wreath_28in_LEDC_Closeup-10_7e25a5be-b40b-4cff-a16e-dc7026e08e9f.webp?v=1789486014",
@@ -5471,6 +5873,9 @@ export const products: Product[] = [
     "category": "guirlandas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-1841012_Champagne-and-Crystal--Wreath_28in-LEDCL_SSC-10.webp?v=1789486012",
@@ -5496,6 +5901,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2241023_Outdoor-Pointsettia-Celebration-Wreath_26in_LEDC_SSC.webp?v=1789486011",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2241023_Outdoor-Pointsettia-Celebration-Wreath_26in_LEDC_Closeup-10.webp?v=1789486011",
@@ -5520,6 +5928,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/NWW-DW_Norway-Spruce-Holiday-Wreath_18in-LEDCL_SSC.webp?v=1789486010",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/NWW-DW_Norway-Spruce-Holiday-Foliage_Detail.webp?v=1789486010"
@@ -5541,6 +5952,9 @@ export const products: Product[] = [
     "category": "guirlandas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2541010-1_28in-Royal-Heirloom-Wreath_SSC.webp?v=1789486009",
@@ -5566,6 +5980,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2041013-2_Gilded-Glory-Magnolia-Wreath_LEDCL_SSC.webp?v=1789486008",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2041013-2_Gilded-Glory-Magnolia-Wreath_LEDCL_Closeup-20.webp?v=1789486008",
@@ -5589,6 +6006,9 @@ export const products: Product[] = [
     "category": "guirlandas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2141012_Gilded-Forest-Wreath_28in_SSC_1.webp?v=1789486007",
@@ -5614,6 +6034,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2341025-5_Ivory-Outdoor-Lit-Poinsettia-Celebration-Wreath_SSC.webp?v=1789486006",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2341025-5_Ivory-Outdoor-Lit-Poinsettia-Celebration-Wreath_Closeup-15.webp?v=1789486006",
@@ -5637,6 +6060,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/ORN-2541070_Christmas-Nostalgia-Mini-Ornaments-Set-of-30_SSC.webp?v=1789065690"
@@ -5659,6 +6085,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos",
       "com-iluminacao"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -5687,6 +6116,9 @@ export const products: Product[] = [
       "exclusivos",
       "com-iluminacao"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/1.jpg?v=1788382744",
@@ -5712,6 +6144,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2541050-1_Red-Berry-Mistletoe-Wreath-28-inch-Battery-Operated_SSC.webp?v=1788379547",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2541050-1_Red-Berry-Mistletoe-Wreath-28-inch-Battery-Operated_Closeup-30.webp?v=1788379547",
@@ -5735,6 +6170,9 @@ export const products: Product[] = [
     "goals": [
       "exclusivos",
       "com-iluminacao"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "badge": "Exclusivo",
     "images": [
@@ -5763,6 +6201,9 @@ export const products: Product[] = [
       "exclusivos",
       "com-iluminacao"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/1_36469417-f61e-47f5-a0b9-6cf1cdaad84e.webp?v=1788378650",
@@ -5788,6 +6229,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/7_d7be16b2-00ec-4407-8644-08b955eeef68.webp?v=1788377280",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/8_fbf4ae77-5ac7-44c9-80c9-5c69e9422906.webp?v=1788377282",
@@ -5811,6 +6255,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/9.webp?v=1788377025",
@@ -5837,6 +6284,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/5.webp?v=1788376748",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/7.webp?v=1788376748",
@@ -5860,6 +6310,9 @@ export const products: Product[] = [
     "category": "decoracao-de-natal",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/1_dfc9ce56-0a08-4506-ab93-7dac92dddfe7.webp?v=1788374382",
@@ -5885,6 +6338,9 @@ export const products: Product[] = [
     "goals": [
       "com-iluminacao"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-1441009_Mixed-Evergreen-with-Pinecones-Wreath_34in-LEDCL_SSC_1.webp?v=1788374096",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/3_ec1c3594-5975-4dd3-826e-3ab0a5a01c84.webp?v=1788374096",
@@ -5909,6 +6365,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "guirlandas-natalinas"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-2541017-1_28in-Boxwood-and-Berries-Wreath_SSC_1.webp?v=1788373813",
@@ -5936,6 +6395,9 @@ export const products: Product[] = [
       "exclusivos",
       "com-iluminacao"
     ],
+    "collections": [
+      "festao-natalino"
+    ],
     "badge": "Exclusivo",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/1.webp?v=1788365116",
@@ -5960,6 +6422,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "festao-natalino"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/FRR-W-1_BH-Fraser-Fir-Connectable-Garland-10-feet-LED-Clear_SSC.webp?v=1788363637",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-1441009_Mixed-Evergreen-with-Pinecones_Lifestyle-40.webp?v=1788363637",
@@ -5982,6 +6447,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "festao-natalino"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WRG-1741016_Outdoor-Winter-Evergreen-Garland_10ft_SSC.webp?v=1784836968",
@@ -6007,6 +6475,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "mini-arvores"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/BFR-QT_Frosted-BH-Balsam-Fir-Tabletop-_30in-LEDCF_SSC.webp?v=1784662759",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/BFR-QT_Frosted-BH-Balsam-Fir-Tabletop_Closeup-10.webp?v=1784662759",
@@ -6030,6 +6501,9 @@ export const products: Product[] = [
     "category": "arvores-de-natal",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "mini-arvores"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/GEP-T_Greenwich-Estates-Pine-Tree_3ft_LEDC_SSC.webp?v=1784662351",
@@ -6055,6 +6529,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "mini-arvores"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WPS-T_Windsor-Potted-Spruce_LEDCA_SSC-10.webp?v=1784662038",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/WPS-T_Windsor-Potted-Spruce_LEDCA_Closeup-10.webp?v=1784662038",
@@ -6079,6 +6556,7 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [],
     "badge": "-25%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/C100-YW_100-Micro-wire-firefly-LED-fairy-lights-warm-white-shelf-close_P1.jpg?v=1784659905",
@@ -6107,6 +6585,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
+    ],
     "badge": "-20%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/L4F2304.jpg?v=1784659888"
@@ -6130,6 +6612,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
     ],
     "badge": "-11%",
     "images": [
@@ -6155,6 +6641,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
+    ],
     "badge": "-11%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/LL21071_Acrylic-Sitting-Bunny-Figure-Illuminated-Snow-Setting-Christmas.jpg?v=1784659885"
@@ -6179,6 +6669,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "renas-de-natal"
+    ],
     "badge": "-14%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/LL21121_Acrylic-Standing-Fawn-Festive-Figure-Illuminated-Snow-Setting-Christmas.jpg?v=1784659884"
@@ -6202,6 +6696,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
     ],
     "badge": "-14%",
     "images": [
@@ -6230,6 +6728,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
+    ],
     "badge": "-20%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/L4F2302.jpg?v=1784659882",
@@ -6254,6 +6756,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
     ],
     "badge": "-33%",
     "images": [
@@ -6285,6 +6791,9 @@ export const products: Product[] = [
     "goals": [
       "com-iluminacao"
     ],
+    "collections": [
+      "imagens-natalinas"
+    ],
     "badge": "-20%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/XX1910_Regular-Outdoor-3D-Micro-Light-Star-Close_P1.jpg?v=1784659880",
@@ -6314,6 +6823,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
+    ],
     "badge": "-25%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/PL21074_Acrylic-Christmas-Dog-Illuminated-Snow-Setting.jpg?v=1784659879"
@@ -6337,6 +6850,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
     ],
     "badge": "-50%",
     "images": [
@@ -6363,6 +6880,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "papai-noel"
+    ],
     "badge": "-11%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/XX1702_Outdoor_Acrylic_Santa_Christmas_Figure.jpg?v=1784659876"
@@ -6387,6 +6908,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "bonecos-de-neve"
+    ],
     "badge": "-20%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/XX1703_Outdoor_Acrylic_Snowman_Christmas_Figure.jpg?v=1784659875"
@@ -6410,6 +6935,10 @@ export const products: Product[] = [
     "category": "iluminacao",
     "goals": [
       "com-iluminacao"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
     ],
     "badge": "-20%",
     "images": [
@@ -6442,6 +6971,10 @@ export const products: Product[] = [
       "exclusivos",
       "com-iluminacao"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "renas-de-natal"
+    ],
     "badge": "-20%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/XX1904_Rattan-Fawn-Christmas-Figure-Outdoor-Garden-Close_P1.jpg?v=1784659872",
@@ -6472,6 +7005,10 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "renas-de-natal"
+    ],
     "badge": "-25%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/XX2210_Studley-Rattan-Sitting-Fawn-Light-Up-Reindeer-Barn-Night_9b081b2b-ac1a-4b31-880a-9d18d63d101d.jpg?v=1784659872",
@@ -6501,6 +7038,10 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
+    ],
     "badge": "-20%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/PL19003_Set-of-3-Acrylic-Penguins-Christmas-Figures-Close_P1.jpg?v=1784659870",
@@ -6527,6 +7068,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "renas-de-natal"
     ],
     "badge": "-30%",
     "images": [
@@ -6560,6 +7105,10 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "renas-de-natal"
+    ],
     "badge": "-29%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/XX1901_Rattan-Stags-Head-Wall-Mounted-Christmas-Figure-Close_P1.jpg?v=1784659868",
@@ -6586,6 +7135,10 @@ export const products: Product[] = [
     "goals": [
       "exclusivos"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "renas-de-natal"
+    ],
     "badge": "-20%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/XX1805_Reindeer-Pair-Sleigh-Christmas-Figures-Scarf-Snow_P1.jpg?v=1784659867",
@@ -6611,6 +7164,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
     ],
     "badge": "-19%",
     "images": [
@@ -6641,6 +7198,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
     ],
     "badge": "-19%",
     "images": [
@@ -6681,6 +7242,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
+    ],
     "badge": "-20%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/PL21056_LED-Skiing-Moose-Outdoor-Christmas-Figure-Snow.jpg?v=1784659863",
@@ -6705,6 +7270,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "exclusivos"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "renas-de-natal"
     ],
     "badge": "-17%",
     "images": [
@@ -6736,6 +7305,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "renas-de-natal"
+    ],
     "badge": "-30%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/Reindeer-Family-Winter-Barn-Setting_3.jpg?v=1784659861",
@@ -6766,6 +7339,10 @@ export const products: Product[] = [
     "category": "decoracao-de-natal",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "renas-de-natal"
     ],
     "badge": "-56%",
     "images": [
@@ -6808,6 +7385,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "enfeites"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/3pcs-natal-fuzzy-gingerbread-man-doll-xmas-tree-pingentes-presente-de-ano-novo-crian-as-enfeites.jpg?v=1784659859",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/3pcs-natal-fuzzy-gingerbread-man-doll-xmas-tree-pingentes-presente-de-ano-novo-crian-as-enfeites_1c8fd922-a65a-4d69-82f4-1782de2f8b68.jpg?v=1784659858",
@@ -6834,6 +7414,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "bonecos-de-neve"
+    ],
     "badge": "-35%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/01.webp?v=1784659844",
@@ -6858,6 +7442,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "bonecos-de-neve"
     ],
     "badge": "-13%",
     "images": [
@@ -6885,6 +7473,9 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas"
     ],
     "badge": "-75%",
     "images": [
@@ -6925,6 +7516,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas"
+    ],
     "badge": "-33%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/01_cf7cabbf-3e1a-4ff6-9bd1-bc4951b6ac45.webp?v=1784659840",
@@ -6948,6 +7542,9 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas"
     ],
     "badge": "-22%",
     "images": [
@@ -6976,6 +7573,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/01_d027ae25-2851-4a02-9bf4-b18b3dc71a80.webp?v=1784659838",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/02_e6aa3420-3f80-47d0-a808-7432f34e45be.webp?v=1784659838"
@@ -6997,6 +7598,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "presepios-de-natal"
     ],
     "badge": "-25%",
     "images": [
@@ -7037,6 +7642,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/01.jpg?v=1784659836",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/02.jpg?v=1784659836"
@@ -7058,6 +7666,10 @@ export const products: Product[] = [
     "category": "figuras-natalinas",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
     ],
     "badge": "-38%",
     "images": [
@@ -7085,6 +7697,10 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "imagens-natalinas",
+      "pinguins-e-outros-animais"
+    ],
     "badge": "-25%",
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/02_950d6240-06cf-4bca-934d-4cf324686a58.jpg?v=1784659833",
@@ -7110,6 +7726,9 @@ export const products: Product[] = [
     "goals": [
       "classicos-de-natal"
     ],
+    "collections": [
+      "guirlandas-natalinas"
+    ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/FRR-W_BH-Fraser-Fir-Wreath-Set-of-2_18in-LEDC_SSC.webp?v=1781581954",
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/FRR-W_BH-Fraser-Fir-Foliage_Detail_1.webp?v=1781581954",
@@ -7133,6 +7752,9 @@ export const products: Product[] = [
     "category": "enfeites",
     "goals": [
       "classicos-de-natal"
+    ],
+    "collections": [
+      "festao-natalino"
     ],
     "images": [
       "https://cdn.shopify.com/s/files/1/0767/3092/5242/files/FRR-W_BH-Fraser-Fir-Garland_6ft-LEDCL_SSC.webp?v=1781581686",

@@ -1,12 +1,13 @@
 import {
   categories,
+  collections,
   goals,
   products,
   type Product,
   type ProductVariant,
 } from '@/lib/generated/catalog-data';
 
-export { categories, goals, products, type Product, type ProductVariant };
+export { categories, collections, goals, products, type Product, type ProductVariant };
 
 export function getVariantImageIndex(product: Product, variantId: string) {
   const variantIndex = product.variants.findIndex((variant) => variant.id === variantId);
@@ -34,12 +35,17 @@ export function getGoalName(slug: string) {
   return goals.find((goal) => goal.slug === slug)?.name ?? slug;
 }
 
+export function getCollectionName(slug: string) {
+  return collections.find((collection) => collection.slug === slug)?.name ?? slug;
+}
+
 export const catalogApiUrl = process.env.NEXT_PUBLIC_CATALOG_API_URL ?? 'https://api-mundonatal.203-161-52-90.nip.io';
 
 export type CatalogSnapshot = {
   products: Product[];
   categories: { slug: string; name: string; productCount?: number }[];
   goals: { slug: string; name: string; productCount?: number }[];
+  collections: { slug: string; name: string; productCount?: number }[];
 };
 
 export async function fetchCatalog(): Promise<CatalogSnapshot> {
@@ -50,7 +56,7 @@ export async function fetchCatalog(): Promise<CatalogSnapshot> {
     if (!payload.catalog || !Array.isArray(payload.catalog.products)) throw new Error('Invalid catalog payload');
     return payload.catalog;
   } catch {
-    return { products, categories: [...categories], goals: [...goals] };
+    return { products, categories: [...categories], goals: [...goals], collections: [...collections] };
   }
 }
 
