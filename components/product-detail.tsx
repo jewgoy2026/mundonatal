@@ -25,6 +25,13 @@ export function ProductDetail({ product }: { product: Product }) {
   const [variantId, setVariantId] = useState(initialVariant.id);
   const [imageIndex, setImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [postalCode, setPostalCode] = useState('');
+  const [shippingLookup, setShippingLookup] = useState<
+    | { status: 'idle' }
+    | { status: 'loading' }
+    | { status: 'success'; city: string; state: string }
+    | { status: 'error'; message: string }
+  >({ status: 'idle' });
   const { addItem } = useCart();
 
   const selectedVariant = useMemo(
@@ -44,6 +51,42 @@ export function ProductDetail({ product }: { product: Product }) {
     }
   };
 
+  const updatePostalCode = (value: string) => {
+    const digits = value.replace(/\D/g, '').slice(0, 8);
+    setPostalCode(digits.length > 5 ? `${digits.slice(0, 5)}-${digits.slice(5)}` : digits);
+    if (shippingLookup.status !== 'idle') setShippingLookup({ status: 'idle' });
+  };
+
+  const calculateShipping = async () => {
+    const digits = postalCode.replace(/\D/g, '');
+    if (digits.length !== 8) {
+      setShippingLookup({ status: 'error', message: 'Digite um CEP válido com 8 números.' });
+      return;
+    }
+
+    setShippingLookup({ status: 'loading' });
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${digits}/json/`, {
+        headers: { Accept: 'application/json' },
+      });
+      const result = await response.json() as {
+        erro?: boolean;
+        localidade?: string;
+        uf?: string;
+      };
+      if (!response.ok || result.erro || !result.localidade || !result.uf) {
+        throw new Error('CEP não encontrado.');
+      }
+      setShippingLookup({
+        status: 'success',
+        city: result.localidade,
+        state: result.uf,
+      });
+    } catch {
+      setShippingLookup({ status: 'error', message: 'Não foi possível consultar esse CEP. Tente novamente.' });
+    }
+  };
+
   return (
     <div className="mx-auto max-w-[1240px] px-3 py-4 text-black sm:px-8 lg:px-0 lg:py-14">
       <nav className="mb-7 hidden text-xs text-black/45 lg:block" aria-label="Navegação estrutural">
@@ -59,7 +102,7 @@ export function ProductDetail({ product }: { product: Product }) {
       <div className="grid gap-7 lg:grid-cols-[minmax(0,520px)_minmax(390px,1fr)] lg:justify-between lg:gap-12">
         <div className="min-w-0 lg:max-w-[520px]">
           <div className="grid gap-2">
-            <div className="order-2 flex gap-2 overflow-x-auto">
+            <div className="no-scrollbar order-2 flex snap-x gap-2 overflow-x-auto overscroll-x-contain">
               {product.images.map((image, index) => (
                 <button
                   type="button"
@@ -67,11 +110,11 @@ export function ProductDetail({ product }: { product: Product }) {
                   aria-label={`Ver imagem ${index + 1}`}
                   aria-current={imageIndex === index}
                   onClick={() => setImageIndex(index)}
-                  className={`size-16 shrink-0 overflow-hidden rounded-xl border bg-white transition sm:size-20 ${
+                  className={`size-16 shrink-0 snap-start overflow-hidden rounded-xl border bg-white transition sm:size-20 ${
                     imageIndex === index ? 'border-[var(--brand-green)]' : 'border-black/10 hover:border-black/40'
                   }`}
                 >
-                  <img src={image} alt="" className="h-full w-full object-cover object-center" />
+                  <img src={image} alt="" className="block h-full w-full object-cover object-center" />
                 </button>
               ))}
             </div>
@@ -87,7 +130,7 @@ export function ProductDetail({ product }: { product: Product }) {
               <img
                 src={product.images[imageIndex]}
                 alt={product.shortName}
-                className="h-full w-full object-contain object-center transition duration-500 hover:scale-[1.025]"
+                className="block h-full w-full object-contain object-center transition duration-500 hover:scale-[1.025]"
               />
             </div>
           </div>
@@ -197,17 +240,60 @@ export function ProductDetail({ product }: { product: Product }) {
             </div>
           </div>
 
-          <form className="mt-6 flex gap-2" onSubmit={(event) => event.preventDefault()}>
-            <Input
-              inputMode="numeric"
-              placeholder="Digite seu CEP"
-              aria-label="CEP para cálculo do frete"
-              className="h-11 rounded-full border-black/20 bg-white px-4 text-black placeholder:text-black/40"
-            />
-            <Button type="submit" variant="outline" className="h-11 rounded-full border-black/30 bg-white px-5 font-black uppercase text-black hover:border-[var(--brand-green)] hover:bg-[var(--brand-green)] hover:text-white">
-              Calcular
-            </Button>
-          </form>
+          <div className="mt-6">
+            <form
+              className="flex gap-2"
+              onSubmit={(event) => {
+                event.preventDefault();
+                void calculateShipping();
+              }}
+            >
+              <Input
+                inputMode="numeric"
+                autoComplete="postal-code"
+                maxLength={9}
+                value={postalCode}
+                onChange={(event) => updatePostalCode(event.target.value)}
+                placeholder="Digite seu CEP"
+                aria-label="CEP para cálculo do frete"
+                aria-describedby="shipping-lookup-result"
+                className="h-11 rounded-full border-black/20 bg-white px-4 text-black placeholder:text-black/40"
+              />
+              <Button
+                type="submit"
+                variant="outline"
+                disabled={shippingLookup.status === 'loading'}
+                className="h-11 rounded-full border-black/30 bg-white px-5 font-black uppercase text-black hover:border-[var(--brand-green)] hover:bg-[var(--brand-green)] hover:text-white disabled:opacity-60"
+              >
+                {shippingLookup.status === 'loading' ? 'Consultando' : 'Calcular'}
+              </Button>
+            </form>
+
+            <div id="shipping-lookup-result" aria-live="polite">
+              {shippingLookup.status === 'error' && (
+                <p className="mt-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
+                  {shippingLookup.message}
+                </p>
+              )}
+              {shippingLookup.status === 'success' && (
+                <div className="mt-3 overflow-hidden rounded-xl border border-black/10 bg-white">
+                  <div className="border-b border-black/10 px-4 py-3 text-sm">
+                    Entrega para <strong>{shippingLookup.city}/{shippingLookup.state}</strong>
+                  </div>
+                  <div className="grid gap-px bg-black/10 sm:grid-cols-2">
+                    <div className="bg-white px-4 py-3">
+                      <p className="text-sm font-black">Frete grátis</p>
+                      <p className="mt-1 text-xs text-black/55">5 a 8 dias úteis</p>
+                    </div>
+                    <div className="bg-white px-4 py-3">
+                      <p className="text-sm font-black">Frete expresso · R$ 27,92</p>
+                      <p className="mt-1 text-xs text-black/55">2 a 3 dias úteis</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
 
           <Accordion className="mt-8 border-y border-black/15">
             <AccordionItem>
