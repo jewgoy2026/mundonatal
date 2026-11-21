@@ -21,6 +21,10 @@ import {
   type CatalogSnapshot,
   type Product,
 } from '@/lib/catalog';
+import {
+  fireGoogleAdsAddToCartConversion,
+  fireGoogleAdsBeginCheckoutConversion,
+} from '@/lib/google-ads-conversion';
 import { cn } from '@/lib/utils';
 
 export type CartItem = {
@@ -109,6 +113,7 @@ function addItem(productHandle: string, variantId: string, quantity = 1, product
       )
     : [...store.items, { productHandle, variantId, quantity: safeQuantity }];
   setStore({ items, cartOpen: true });
+  fireGoogleAdsAddToCartConversion();
   return true;
 }
 
@@ -339,7 +344,10 @@ function CartDrawer() {
             <p className="mb-3 text-xs text-white/50">Frete calculado na próxima etapa.</p>
             <a
               href="/checkout"
-              onClick={() => setCartOpen(false)}
+              onClick={() => {
+                fireGoogleAdsBeginCheckoutConversion(subtotal);
+                setCartOpen(false);
+              }}
               className={cn(
                 buttonVariants({ size: 'lg' }),
                 'h-12 w-full rounded-full bg-[var(--brand-yellow)] font-black uppercase text-black hover:bg-[#e8ab00]',

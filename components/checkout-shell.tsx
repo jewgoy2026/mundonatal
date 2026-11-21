@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type SyntheticEvent } from 'react';
 import { Check, Copy, CreditCard, LoaderCircle, LockKeyhole, MapPin, QrCode, ShoppingBag, Truck } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
-import { fireGoogleAdsConversion } from '@/lib/google-ads-conversion';
+import { fireGoogleAdsPurchaseConversion } from '@/lib/google-ads-conversion';
 import { useCart } from '@/components/cart-provider';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -48,12 +48,6 @@ type PixOrder = {
 
 type ShippingMethod = 'STANDARD' | 'EXPRESS';
 type PixPaymentMode = 'GATEWAY' | 'STATIC_KEY';
-
-type GoogleAdsPixConversion = {
-  enabled: boolean;
-  sendTo: string | null;
-  backupSendTo: string | null;
-};
 
 type CardPaymentSettings = {
   provider: 'MERCADO_PAGO';
@@ -190,7 +184,6 @@ export function CheckoutShell() {
   const [pixPaymentMode, setPixPaymentMode] = useState<PixPaymentMode>('GATEWAY');
   const [pixDiscountPercent, setPixDiscountPercent] = useState(0);
   const [pixMaxTransactionCents, setPixMaxTransactionCents] = useState<number | null>(null);
-  const [googleAdsPixConversion, setGoogleAdsPixConversion] = useState<GoogleAdsPixConversion>({ enabled: false, sendTo: null, backupSendTo: null });
   const [pixLoading, setPixLoading] = useState(false);
   const [pixError, setPixError] = useState('');
   const [pixOrder, setPixOrder] = useState<PixOrder | null>(null);
@@ -218,7 +211,6 @@ export function CheckoutShell() {
             pixDiscountPercent?: number;
             maxTransactionCents?: number | null;
             pixRouting?: { mode?: PixPaymentMode };
-            googleAdsPixConversion?: GoogleAdsPixConversion;
             cardPayment?: CardPaymentSettings;
           };
         }>;
@@ -228,12 +220,6 @@ export function CheckoutShell() {
         const limit = Number(payload.data?.maxTransactionCents);
         setPixMaxTransactionCents(Number.isFinite(limit) && limit > 0 ? limit : null);
         setPixPaymentMode(payload.data?.pixRouting?.mode === 'STATIC_KEY' ? 'STATIC_KEY' : 'GATEWAY');
-        const conversion = payload.data?.googleAdsPixConversion;
-        setGoogleAdsPixConversion({
-          enabled: conversion?.enabled === true,
-          sendTo: typeof conversion?.sendTo === 'string' ? conversion.sendTo : null,
-          backupSendTo: typeof conversion?.backupSendTo === 'string' ? conversion.backupSendTo : null,
-        });
         const card = payload.data?.cardPayment;
         setCardPayment({
           provider: 'MERCADO_PAGO',
@@ -248,31 +234,23 @@ export function CheckoutShell() {
 
   const readyPix = pixOrder?.pix ?? null;
   useEffect(() => {
-    if (!readyPix?.copyPaste || !googleAdsPixConversion.enabled || (!googleAdsPixConversion.sendTo && !googleAdsPixConversion.backupSendTo)) return;
+    if (!readyPix?.copyPaste) return;
     // Conversao dispara somente apos a API confirmar a geracao do PIX,
     // com valor final da cobranca e identificador unico do provedor.
-    void fireGoogleAdsConversion({
+    fireGoogleAdsPurchaseConversion({
       transactionId: readyPix.transactionId || undefined,
       amountCents: pixOrder ? pixOrder.totalCents : null,
-      sendTo: googleAdsPixConversion.sendTo,
-      backupSendTo: googleAdsPixConversion.backupSendTo,
-    }).catch(() => {
-      // O PIX continua utilizavel se o navegador bloquear o rastreamento.
     });
-  }, [readyPix, pixOrder, googleAdsPixConversion]);
+  }, [readyPix, pixOrder]);
 
   useEffect(() => {
-    if (cardOrder?.status !== 'processed' || !googleAdsPixConversion.enabled) return;
+    if (cardOrder?.status !== 'processed') return;
     const transactionId = cardOrder.providerPaymentId ?? cardOrder.providerOrderId ?? `card-${cardOrder.orderNumber}`;
-    void fireGoogleAdsConversion({
+    fireGoogleAdsPurchaseConversion({
       transactionId,
       amountCents: cardOrder.totalCents,
-      sendTo: googleAdsPixConversion.sendTo,
-      backupSendTo: googleAdsPixConversion.backupSendTo,
-    }).catch(() => {
-      // O pedido aprovado continua visível mesmo quando o rastreamento é bloqueado.
     });
-  }, [cardOrder, googleAdsPixConversion]);
+  }, [cardOrder]);
 
   const lookupCep = async () => {
     const digits = address.cep.replace(/\D/g, '');

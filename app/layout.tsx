@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
 import { CartRoot } from '@/components/cart-provider';
+import { GoogleAdsGlobalTag } from '@/components/google-ads-global-tag';
 import { MetaPixel } from '@/components/meta-pixel';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -52,6 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <GoogleAdsGlobalTag />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <CartRoot />
         <MetaPixel />

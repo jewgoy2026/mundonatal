@@ -5,6 +5,7 @@ import { Minus, Plus, ShoppingBag, Trash2 } from 'lucide-react';
 import { useCart } from '@/components/cart-provider';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { formatMoney, getVariantImage, products } from '@/lib/catalog';
+import { fireGoogleAdsBeginCheckoutConversion } from '@/lib/google-ads-conversion';
 import { cn } from '@/lib/utils';
 
 export function CartPage() {
@@ -104,7 +105,11 @@ export function CartPage() {
             <p className="mt-2 text-[11px] text-white/55">Expresso em 2 a 3 dias úteis por R$ 27,92.</p>
           </div>
 
-          <a href="/checkout" className={cn(buttonVariants({ size: 'lg' }), 'mt-6 h-12 w-full rounded-full bg-[var(--brand-yellow)] font-black uppercase text-black hover:bg-[#e8ab00]')}>
+          <a
+            href="/checkout"
+            onClick={() => fireGoogleAdsBeginCheckoutConversion(subtotal)}
+            className={cn(buttonVariants({ size: 'lg' }), 'mt-6 h-12 w-full rounded-full bg-[var(--brand-yellow)] font-black uppercase text-black hover:bg-[#e8ab00]')}
+          >
             Continuar para checkout
           </a>
           <a href="/produtos" className="mt-4 block text-center text-xs font-bold uppercase underline underline-offset-4">Continuar comprando</a>
