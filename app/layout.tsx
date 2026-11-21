@@ -21,26 +21,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://reinonatalino.shop'),
-  title: 'Mundo do Natal | A magia começa dentro de casa',
+  title: 'Reino Natalino | A magia começa dentro de casa',
   description: 'Árvores, guirlandas, iluminação e decoração para transformar a sua casa no Natal.',
   icons: {
     icon: 'https://mundodonatal.com/cdn/shop/t/10/assets/logo-mundo-do-natal-favicon-v1.png?v=145563815753261193141794234297',
   },
   openGraph: {
-    title: 'Mundo do Natal | A magia começa dentro de casa',
+    title: 'Reino Natalino | A magia começa dentro de casa',
     description: 'Árvores, guirlandas, iluminação e decoração para transformar a sua casa no Natal.',
     images: [
       {
         url: 'https://mundodonatal.com/cdn/shop/t/10/assets/hero-mundo-natal.webp?v=95608368117420465371794234297',
         width: 1920,
         height: 1080,
-        alt: 'Mundo do Natal',
+        alt: 'Reino Natalino',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mundo do Natal | A magia começa dentro de casa',
+    title: 'Reino Natalino | A magia começa dentro de casa',
     description: 'Árvores, guirlandas, iluminação e decoração para transformar a sua casa no Natal.',
     images: ['https://mundodonatal.com/cdn/shop/t/10/assets/hero-mundo-natal.webp?v=95608368117420465371794234297'],
   },

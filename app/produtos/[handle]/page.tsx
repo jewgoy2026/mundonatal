@@ -18,14 +18,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { handle } = await params;
   const [product, requestHeaders] = await Promise.all([fetchProduct(handle), headers()]);
-  if (!product) return { title: 'Produto não encontrado | Mundo do Natal' };
+  if (!product) return { title: 'Produto não encontrado | Reino Natalino' };
   const origin = getSiteOrigin(
     requestHeaders.get('x-forwarded-host') ?? requestHeaders.get('host'),
     requestHeaders.get('x-forwarded-proto'),
   );
   const productUrl = `${origin}/produtos/${encodeURIComponent(product.handle)}`;
   return {
-    title: `${product.shortName} | Mundo do Natal`,
+    title: `${product.shortName} | Reino Natalino`,
     description: product.description,
     alternates: { canonical: productUrl },
     openGraph: {
@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     ...(primaryVariant?.sku ? { sku: primaryVariant.sku } : {}),
     brand: {
       '@type': 'Brand',
-      name: 'Mundo do Natal',
+      name: 'Reino Natalino',
     },
     offers: {
       '@type': 'Offer',

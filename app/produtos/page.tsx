@@ -4,7 +4,7 @@ import { ProductListing } from '@/components/product-listing';
 import { fetchCatalog } from '@/lib/catalog';
 
 export const metadata: Metadata = {
-  title: 'Todos os produtos | Mundo do Natal',
+  title: 'Todos os produtos | Reino Natalino',
   description: 'Conheça a coleção completa de árvores, luzes, guirlandas, figuras e enfeites de Natal.',
 };
 

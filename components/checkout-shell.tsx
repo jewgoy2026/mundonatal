@@ -193,8 +193,9 @@ export function CheckoutShell() {
     provider: 'MERCADO_PAGO',
     enabled: false,
     publicKey: null,
-    threeDsEnabled: false,
+    threeDsEnabled: true,
   });
+  const [cardSettingsLoading, setCardSettingsLoading] = useState(true);
   const [cardOrder, setCardOrder] = useState<CardOrder | null>(null);
   const [cardError, setCardError] = useState('');
   const [cardBrickReady, setCardBrickReady] = useState(false);
@@ -203,32 +204,52 @@ export function CheckoutShell() {
 
   useEffect(() => {
     const lifecycle = new AbortController();
-    void fetch('/api/checkout/settings', { cache: 'no-store', signal: lifecycle.signal })
-      .then(async (response) => {
-        if (!response.ok) throw new Error('Configuração indisponível.');
-        return response.json() as Promise<{
-          data?: {
-            pixDiscountPercent?: number;
-            maxTransactionCents?: number | null;
-            pixRouting?: { mode?: PixPaymentMode };
-            cardPayment?: CardPaymentSettings;
-          };
-        }>;
-      })
-      .then((payload) => {
-        setPixDiscountPercent(Number(payload.data?.pixDiscountPercent ?? 0));
-        const limit = Number(payload.data?.maxTransactionCents);
-        setPixMaxTransactionCents(Number.isFinite(limit) && limit > 0 ? limit : null);
-        setPixPaymentMode(payload.data?.pixRouting?.mode === 'STATIC_KEY' ? 'STATIC_KEY' : 'GATEWAY');
-        const card = payload.data?.cardPayment;
-        setCardPayment({
-          provider: 'MERCADO_PAGO',
-          enabled: card?.enabled === true && typeof card.publicKey === 'string',
-          publicKey: typeof card?.publicKey === 'string' ? card.publicKey : null,
-          threeDsEnabled: card?.threeDsEnabled === true,
-        });
-      })
-      .catch(() => undefined);
+    const loadSettings = async () => {
+      try {
+        let lastError: unknown;
+        for (let attempt = 0; attempt < 3; attempt += 1) {
+          try {
+            const response = await fetch('/api/checkout/settings', {
+              cache: 'no-store',
+              signal: lifecycle.signal,
+            });
+            if (!response.ok) throw new Error('Configuração indisponível.');
+            const payload = await response.json() as {
+              data?: {
+                pixDiscountPercent?: number;
+                maxTransactionCents?: number | null;
+                pixRouting?: { mode?: PixPaymentMode };
+                cardPayment?: CardPaymentSettings;
+              };
+            };
+            if (lifecycle.signal.aborted) return;
+            setPixDiscountPercent(Number(payload.data?.pixDiscountPercent ?? 0));
+            const limit = Number(payload.data?.maxTransactionCents);
+            setPixMaxTransactionCents(Number.isFinite(limit) && limit > 0 ? limit : null);
+            setPixPaymentMode(payload.data?.pixRouting?.mode === 'STATIC_KEY' ? 'STATIC_KEY' : 'GATEWAY');
+            const card = payload.data?.cardPayment;
+            const publicKey = typeof card?.publicKey === 'string' ? card.publicKey.trim() : '';
+            setCardPayment({
+              provider: 'MERCADO_PAGO',
+              enabled: card?.enabled === true && publicKey.length >= 20,
+              publicKey: publicKey || null,
+              threeDsEnabled: true,
+            });
+            return;
+          } catch (error) {
+            if (lifecycle.signal.aborted) return;
+            lastError = error;
+            if (attempt < 2) await new Promise((resolve) => window.setTimeout(resolve, 350 * (attempt + 1)));
+          }
+        }
+        throw lastError;
+      } catch {
+        // Mantém o PIX utilizável quando a consulta de cartão estiver indisponível.
+      } finally {
+        if (!lifecycle.signal.aborted) setCardSettingsLoading(false);
+      }
+    };
+    void loadSettings();
     return () => lifecycle.abort();
   }, []);
 
@@ -712,7 +733,7 @@ if (items.length === 0) {
                 <label aria-disabled={!cardPayment.enabled} className={`flex items-center justify-between gap-4 border-2 p-5 ${cardPayment.enabled ? 'cursor-pointer' : 'cursor-not-allowed text-black/45'} ${paymentMethod === 'card' ? 'bg-[var(--brand-cream)]' : 'bg-white'}`}>
                   <span className="flex items-center gap-4">
                     <RadioGroupItem value="card" disabled={!cardPayment.enabled} />
-                    <span><strong className="block uppercase">Cartão de crédito</strong><small>{cardPayment.enabled ? 'Formulário seguro do Mercado Pago' : 'Credenciais não configuradas para esta loja'}</small></span>
+                    <span><strong className="block uppercase">Cartão de crédito</strong><small>{cardSettingsLoading ? 'Validando pagamento seguro…' : cardPayment.enabled ? 'Formulário seguro do Mercado Pago · 3DS ativo' : 'Credenciais não configuradas para esta loja'}</small></span>
                   </span>
                 </label>
               </RadioGroup>

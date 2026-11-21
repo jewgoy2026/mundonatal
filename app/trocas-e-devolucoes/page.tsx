@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { PolicyPage } from '@/components/policy-page';
 
 export const metadata: Metadata = {
-  title: 'Trocas e devoluções | Mundo do Natal Suplementos',
+  title: 'Trocas e devoluções | Reino Natalino',
   description: 'Consulte os prazos e condições para trocas, devoluções e reembolsos de pedidos Mundo do Natal.',
 };
 

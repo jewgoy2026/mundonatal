@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { CheckoutShell } from '@/components/checkout-shell';
 
 export const metadata: Metadata = {
-  title: 'Checkout | Mundo do Natal Suplementos',
+  title: 'Checkout | Reino Natalino',
   robots: { index: false, follow: false },
 };
 

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { CartPage } from '@/components/cart-page';
 
 export const metadata: Metadata = {
-  title: 'Carrinho | Mundo do Natal Suplementos',
+  title: 'Carrinho | Reino Natalino',
 };
 
 export default function CartRoute() {

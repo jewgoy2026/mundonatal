@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { PolicyPage } from '@/components/policy-page';
 
 export const metadata: Metadata = {
-  title: 'Frete e entrega | Mundo do Natal Suplementos',
+  title: 'Frete e entrega | Reino Natalino',
   description: 'Consulte modalidades, prazos e condições de entrega dos pedidos Mundo do Natal.',
 };
 
