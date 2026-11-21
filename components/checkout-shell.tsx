@@ -733,7 +733,7 @@ if (items.length === 0) {
                 <label aria-disabled={!cardPayment.enabled} className={`flex items-center justify-between gap-4 border-2 p-5 ${cardPayment.enabled ? 'cursor-pointer' : 'cursor-not-allowed text-black/45'} ${paymentMethod === 'card' ? 'bg-[var(--brand-cream)]' : 'bg-white'}`}>
                   <span className="flex items-center gap-4">
                     <RadioGroupItem value="card" disabled={!cardPayment.enabled} />
-                    <span><strong className="block uppercase">Cartão de crédito</strong><small>{cardSettingsLoading ? 'Validando pagamento seguro…' : cardPayment.enabled ? 'Formulário seguro do Mercado Pago · 3DS ativo' : 'Credenciais não configuradas para esta loja'}</small></span>
+                    <span><strong className="block uppercase">Cartão de crédito</strong><small>{cardSettingsLoading ? 'Validando pagamento seguro…' : cardPayment.enabled ? 'Formulário seguro do Mercado Pago' : 'Credenciais não configuradas para esta loja'}</small></span>
                   </span>
                 </label>
               </RadioGroup>
