@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { collections } from '@/lib/catalog';
 
-const LOGO = 'https://mundodonatal.com/cdn/shop/t/10/assets/logo-mundo-do-natal-favicon-v1.png?v=145563815753261193141794234297';
+const LOGO = '/reino-natalino-logo.png';
 
 export function SiteHeader() {
   const { count, setCartOpen } = useCart();
@@ -22,9 +22,14 @@ export function SiteHeader() {
       <header className="sticky top-0 z-50 border-b border-black/10 bg-[var(--brand-cream)]/95 text-black backdrop-blur">
         <div className="mx-auto flex h-16 max-w-[1360px] items-center gap-2 px-3 sm:h-20 sm:gap-4 sm:px-8 lg:h-20">
           <Button variant="ghost" size="icon-lg" className="lg:hidden" aria-label="Abrir menu" onClick={() => setMenuOpen(true)}><Menu /></Button>
-          <a href="/" className="flex min-w-0 items-center gap-3" aria-label="Mundo do Natal - início">
-            <img src={LOGO} alt="Mundo do Natal" className="size-10 rounded-full object-contain sm:size-12" />
-            <span className="brand-heading hidden text-2xl leading-none text-[var(--brand-red)] sm:block lg:text-3xl">Mundo do Natal</span>
+          <a href="/" className="flex min-w-0 shrink items-center" aria-label="Reino Natalino - início">
+            <img
+              src={LOGO}
+              alt="Reino Natalino"
+              width={2172}
+              height={724}
+              className="h-9 w-auto max-w-[116px] object-contain sm:h-12 sm:max-w-[162px] lg:h-14 lg:max-w-[190px]"
+            />
           </a>
           <nav className="ml-auto hidden items-center gap-5 text-sm font-bold lg:flex">
             <a href="/produtos?colecao=arvores-de-natal" className="hover:text-[var(--brand-green-dark)]">Árvores</a>
@@ -49,7 +54,7 @@ export function SiteHeader() {
         </nav>
         {searchOpen && <div className="border-t border-black/10 px-4 py-4"><form action="/produtos" className="mx-auto flex max-w-2xl gap-2"><Input name="q" placeholder="Busque árvores, guirlandas, luzes..." className="h-12 border-black/15 bg-white" /><Button className="h-12 bg-[var(--brand-green)] text-white hover:bg-[var(--brand-green-dark)]">Buscar</Button></form></div>}
       </header>
-      {menuOpen && <div className="fixed inset-0 z-[60] overflow-y-auto bg-[var(--brand-cream)] text-black lg:hidden"><div className="flex items-center justify-between border-b border-black/10 p-5"><span className="brand-heading text-2xl text-[var(--brand-red)]">Mundo do Natal</span><Button variant="ghost" size="icon-lg" onClick={() => setMenuOpen(false)}><X /></Button></div><nav className="grid grid-cols-2 gap-2 p-5">{collections.map((collection) => <a key={collection.slug} href={`/produtos?colecao=${collection.slug}`} className="flex min-h-16 items-center rounded-xl border border-black/10 bg-white p-3 text-sm font-bold shadow-sm" onClick={() => setMenuOpen(false)}>{collection.name}</a>)}<a href="/produtos" className="col-span-2 mt-3 rounded-full bg-[var(--brand-green)] px-5 py-4 text-center font-bold text-white" onClick={() => setMenuOpen(false)}>Ver catálogo completo</a></nav></div>}
+      {menuOpen && <div className="fixed inset-0 z-[60] overflow-y-auto bg-[var(--brand-cream)] text-black lg:hidden"><div className="flex min-h-20 items-center justify-between border-b border-black/10 px-5 py-3"><a href="/" aria-label="Reino Natalino - início" onClick={() => setMenuOpen(false)}><img src={LOGO} alt="Reino Natalino" width={2172} height={724} className="h-12 w-auto max-w-[168px] object-contain" /></a><Button variant="ghost" size="icon-lg" onClick={() => setMenuOpen(false)}><X /></Button></div><nav className="grid grid-cols-2 gap-2 p-5">{collections.map((collection) => <a key={collection.slug} href={`/produtos?colecao=${collection.slug}`} className="flex min-h-16 items-center rounded-xl border border-black/10 bg-white p-3 text-sm font-bold shadow-sm" onClick={() => setMenuOpen(false)}>{collection.name}</a>)}<a href="/produtos" className="col-span-2 mt-3 rounded-full bg-[var(--brand-green)] px-5 py-4 text-center font-bold text-white" onClick={() => setMenuOpen(false)}>Ver catálogo completo</a></nav></div>}
     </>
   );
 }
